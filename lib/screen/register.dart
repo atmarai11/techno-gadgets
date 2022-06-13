@@ -40,10 +40,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 253, 250, 221),
+      backgroundColor: Color.fromARGB(255, 181, 214, 223),
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Student Registration'),
+        title: const Text('Sign Up Here'),
+        backgroundColor: Colors.yellow,
+        foregroundColor: Colors.green,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8),
@@ -168,7 +170,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     }
                   },
                   child: const Text(
-                    'Register',
+                    'Sign Up',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

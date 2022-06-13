@@ -21,7 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
       ).show(context);
     }
   }
-  _login() async {
+  _login(User user) async {
     try {
       UserRepository userRepository = UserRepository();
       bool isLogin = await userRepository.login(
@@ -42,6 +42,13 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Color.fromARGB(255, 181, 214, 223),
+      appBar: AppBar(
+        title: const Text('Welcome to Techno-Gsdgets'),
+        centerTitle: true,
+        backgroundColor: Colors.yellow,
+        foregroundColor: Colors.green,
+      ),
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -52,16 +59,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // SizedBox(
-                    //   height: 150,
-                    //   child: SvgPicture.asset(
-                    //     "assets/svg/student-hat-2.svg",
-                    //     color: Colors.blue,
-                    //   ),
-                    // ),
-                    // const SizedBox(
-                    //   height: 20,
-                    // ),
+                    SizedBox(
+                      height: 250,
+                      child: Image.asset(
+                        "assets/image/login.png",
+                        // color: Colors.grey,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     TextFormField(
                       controller: _usernameController,
                       decoration: const InputDecoration(
@@ -102,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               username: _usernameController.text,
                               password: _passwordController.text,
                             );
-                            _login();
+                            _login(user);
                           }
                         },
                         
@@ -122,9 +129,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.pushNamed(context, '/register');
                         },
                         child: const Text(
-                          'Register User',
+                          "Don't have an account? Sign Up",
                           style: TextStyle(
                             fontSize: 18,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
